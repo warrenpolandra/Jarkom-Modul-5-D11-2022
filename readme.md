@@ -355,3 +355,19 @@ iptables di atas akan melalukan drop pada semua TCP dan UDP dengan tujuan **WISE
 ![Netcat Strix](https://cdn.discordapp.com/attachments/856609726225973278/1049356285952393286/image.png)
 
 ![Netcat WISE](https://cdn.discordapp.com/attachments/856609726225973278/1049356571903283330/image.png)
+
+## (3) Membatasi DHCP dan DNS Server hanya boleh menerima maksimal 2 koneksi ICMP secara bersamaan
+
+Limit koneksi ICMP dengan iptables pada **WISE** sebagai DHCP Server dan **Eden** sebagai DNS Server
+
+```
+iptables -A INPUT -p icmp -m connlimit --connlimit-above 2 --connlimit-mask 0 -j DROP
+```
+
+### Testing ping Eden (192.190.0.18) dengan 3 client
+
+![Ping Forger](https://cdn.discordapp.com/attachments/856609726225973278/1049358966699860019/image.png)
+
+![Ping Desmond](https://cdn.discordapp.com/attachments/856609726225973278/1049359050351050812/image.png)
+
+![Ping Briar](https://cdn.discordapp.com/attachments/856609726225973278/1049359380866416730/image.png)
