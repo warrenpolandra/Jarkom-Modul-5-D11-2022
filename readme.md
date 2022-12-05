@@ -29,3 +29,9 @@
 ## Pembagian Subnet - VLSM
 
 ![Subnet VLSM](https://cdn.discordapp.com/attachments/856609726225973278/1049249641172062239/Subnet_VLSM.png)
+
+## Penghitungan Jumlah Subnet
+
+## VLSM Tree
+
+![VLSM Tree](https://cdn.discordapp.com/attachments/856609726225973278/1049256468882395146/VLSM_Tree.png)
