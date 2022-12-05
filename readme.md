@@ -186,9 +186,96 @@ route add -net 192.190.2.0 netmask 255.255.254.0 gw 192.190.0.6
 
 ## (D) DHCP
 
-Pada Forger, Desmond, Blackbell, dan Briar dilakukan network configuration seperti berikut
+Pada **Forger**, **Desmond**, **Blackbell**, dan **Briar** dilakukan network configuration seperti berikut
 
 ```
 auto eth0
 iface eth0 inet dhcp
+```
+
+### DHCP Server
+
+1. Pada **WISE** sebagai DHCP Server, dilakukan instalasi DHCP Server
+
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+
+apt-get update
+apt-get install isc-dhcp-server -y
+```
+
+2. Konfigurasi file `/etc/default/isc-dhcp-server` pada **WISE** sebagai DHCP Server
+
+```
+INTERFACES="eth0"
+```
+
+3. Konfigurasi file `/etc/dhcp/dhcpd.conf` pada **WISE** sebagai DHCP Server
+
+```
+# Forger (A2)
+subnet 192.190.0.128 netmask 255.255.255.128 {
+        range 192.190.0.130 192.190.0.254;
+        option routers 192.190.0.129;
+        option broadcast-address 192.190.0.255;
+        option domain-name-servers 192.190.0.18;
+        default-lease-time 600;
+        max-lease-time 7200;
+}
+
+# Desmond (A3)
+subnet 192.190.4.0 netmask 255.255.252.0 {
+        range 192.190.4.2 192.190.7.254;
+        option routers 192.190.4.1;
+        option broadcast-address 192.190.7.255;
+        option domain-name-servers 192.190.0.18;
+        default-lease-time 600;
+        max-lease-time 7200;
+}
+
+# Briar (A6)
+subnet 192.190.1.0 netmask 255.255.255.0 {
+        range 192.190.1.2 192.190.1.254;
+        option routers 192.190.1.1;
+        option broadcast-address 192.190.1.255;
+        option domain-name-servers 192.190.0.18;
+        default-lease-time 600;
+        max-lease-time 7200;
+}
+
+# Blackbell (A7)
+subnet 192.190.2.0 netmask 255.255.254.0 {
+        range 192.190.2.2 192.190.3.254;
+        option routers 192.190.2.1;
+        option broadcast-address 192.190.3.255;
+        option domain-name-servers 192.190.0.18;
+        default-lease-time 600;
+        max-lease-time 7200;
+}
+
+# WISE menuju Westalis (A1)
+subnet 192.190.0.16 netmask 255.255.255.248 {
+        option routers 192.200.0.17;
+}
+```
+
+### DHCP Relay
+
+Dengan topologi yang ada, **Westalis** dan **Ostania** akan bekerja sebagai DHCP Relay
+
+1. Pada **Westalis** dan **Ostania** sebagai DHCP Relay, dilakukan instalasi DHCP Relay
+
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+
+apt-get update
+apt-get install isc-dhcp-relay -y
+```
+
+2. Konfigurasi file `/etc/default/isc-dhcp-relay` pada **Westalis** dan **Ostania** sebagai DHCP Relay
+
+```
+SERVERS="192.190.0.19"
+INTERFACES="eth0 eth1 eth2 eth3"
+OPTIONS=""
 ```
