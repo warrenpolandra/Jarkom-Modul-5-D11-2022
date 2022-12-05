@@ -285,3 +285,21 @@ SERVERS="192.190.0.19"
 INTERFACES="eth0 eth1 eth2 eth3"
 OPTIONS=""
 ```
+
+### Testing
+
+#### Forger
+
+![DHCP Forger](https://cdn.discordapp.com/attachments/856609726225973278/1049322570123579422/image.png)
+
+#### Desmond
+
+![DHCP Desmond](https://cdn.discordapp.com/attachments/856609726225973278/1049322771928330340/image.png)
+
+#### Briar
+
+![DHCP Briar](https://cdn.discordapp.com/attachments/856609726225973278/1049322929411866624/image.png)
+
+#### Blackbell
+
+![DHCP Blackbell](https://cdn.discordapp.com/attachments/856609726225973278/1049323163168813066/image.png)
