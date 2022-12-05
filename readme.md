@@ -60,3 +60,112 @@
 | 6 | A8 | 192.190.0.24 | 255.255.255.248 | 0.0.0.7 | 192.190.0.31 |
 | 7 | A4 | 192.190.0.0 | 255.255.255.252 | 0.0.0.3 | 192.190.0.3 |
 | 8 | A5 | 192.190.0.4 | 255.255.255.252 | 0.0.0.3 | 192.190.0.7 |
+
+## Network Configuration
+
+### Strix
+
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+        address 192.190.0.1
+        netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+        address 192.190.0.5
+        netmask 255.255.255.252
+```
+
+### Westalis
+
+```
+auto eth0
+iface eth0 inet static
+        address 192.190.0.2
+        netmask 255.255.255.252
+        gateway 192.190.0.1
+
+auto eth1
+iface eth1 inet static
+        address 192.190.0.17
+        netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+        address 192.190.0.129
+        netmask 255.255.255.128
+
+auto eth3
+iface eth3 inet static
+        address 192.190.4.1
+        netmask 255.255.252.0
+```
+
+### Ostania
+
+```
+auto eth0
+iface eth0 inet static
+        address 192.190.0.6
+        netmask 255.255.255.252
+        gateway 192.190.0.5
+
+auto eth1
+iface eth1 inet static
+        address 192.190.1.1
+        netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+        address 192.190.0.25
+        netmask 255.255.255.248
+
+auto eth3
+iface eth3 inet static
+        address 192.190.2.1
+        netmask 255.255.254.0
+```
+
+### Eden
+
+```
+auto eth0
+iface eth0 inet static
+        address 192.190.0.18
+        netmask 255.255.255.248
+        gateway 192.190.0.17
+```
+
+### WISE
+
+```
+auto eth0
+iface eth0 inet static
+        address 192.190.0.19
+        netmask 255.255.255.248
+        gateway 192.190.0.17
+```
+
+### SSS
+
+```
+auto eth0
+iface eth0 inet static
+        address 192.190.0.26
+        netmask 255.255.255.248
+        gateway 192.190.0.25
+```
+
+### Garden
+
+```
+auto eth0
+iface eth0 inet static
+        address 192.190.0.27
+        netmask 255.255.255.248
+        gateway 192.190.0.25
+```
