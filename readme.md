@@ -333,4 +333,25 @@ iptables -t nat -A POSTROUTING -s 192.190.0.0/21 -o eth0 -j SNAT --to-source 192
 ![Ping Google Briar](https://cdn.discordapp.com/attachments/856609726225973278/1049326318887649411/image.png)
 
 
-## (2) Drop semua TCP dan UDP
+## (2) Drop semua TCP dan UDP pada DHCP Server
+
+Pada **Strix** dilakukan konfigurasi firewall sebagai berikut
+
+```
+iptables -A FORWARD -p tcp -d 192.190.0.19 -i eth0 -j DROP # Drop semua TCP
+iptables -A FORWARD -p udp -d 192.190.0.19 -i eth0 -j DROP # Drop semua UDP
+```
+
+iptables di atas akan melalukan drop pada semua TCP dan UDP dengan tujuan **WISE** yang memiliki IP address `192.190.0.19`
+
+### Testing
+
+#### Ping google.com pada WISE setelah iptables
+
+![Ping Firewall](https://cdn.discordapp.com/attachments/856609726225973278/1049355613160882186/image.png)
+
+#### Netcat **WISE** dengan **Strix** menggunakan port 18
+
+![Netcat Strix](https://cdn.discordapp.com/attachments/856609726225973278/1049356285952393286/image.png)
+
+![Netcat WISE](https://cdn.discordapp.com/attachments/856609726225973278/1049356571903283330/image.png)
