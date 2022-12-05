@@ -331,3 +331,6 @@ iptables -t nat -A POSTROUTING -s 192.190.0.0/21 -o eth0 -j SNAT --to-source 192
 #### Pada **Briar**
 
 ![Ping Google Briar](https://cdn.discordapp.com/attachments/856609726225973278/1049326318887649411/image.png)
+
+
+## (2) Drop semua TCP dan UDP
