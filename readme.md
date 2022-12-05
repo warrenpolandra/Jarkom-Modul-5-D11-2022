@@ -169,3 +169,18 @@ iface eth0 inet static
         netmask 255.255.255.248
         gateway 192.190.0.25
 ```
+
+## Routing
+
+Pada Strix
+
+```
+route add -net 192.190.0.16 netmask 255.255.255.248 gw 192.190.0.2
+route add -net 192.190.0.128 netmask 255.255.255.128 gw 192.190.0.2
+route add -net 192.190.4.0 netmask 255.255.252.0 gw 192.190.0.2
+
+route add -net 192.190.1.0 netmask 255.255.255.0 gw 192.190.0.6
+route add -net 192.190.0.24 netmask 255.255.255.248 gw 192.190.0.6
+route add -net 192.190.2.0 netmask 255.255.254.0 gw 192.190.0.6
+```
+
