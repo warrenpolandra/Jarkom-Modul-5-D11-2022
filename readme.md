@@ -68,6 +68,7 @@
 ```
 auto eth0
 iface eth0 inet dhcp
+hwaddress ether 3a:20:6d:d7:5b:79
 
 auto eth1
 iface eth1 inet static
@@ -79,6 +80,7 @@ iface eth2 inet static
         address 192.190.0.5
         netmask 255.255.255.252
 ```
+**Strix** menggunakan `hwaddress` agar bisa mendapatkan fixed address yang akan digunakan untuk konfigurasi iptables nantinya. Fixed address dari **Strix** adalah `192.168.122.227`
 
 ### Westalis
 
@@ -303,3 +305,11 @@ OPTIONS=""
 #### Blackbell
 
 ![DHCP Blackbell](https://cdn.discordapp.com/attachments/856609726225973278/1049323163168813066/image.png)
+
+## (1) iptables pada **Strix** tanpa `MASQUERADE`
+
+`MASQUERADE` dapat diganti dengan `SNAT` dengan tambahan `--to-source` dengan IP dari Strix sendiri yaitu `192.168.122.227`, syntaxnya adalah
+
+```
+iptables -t nat -A POSTROUTING -s 192.190.0.0/21 -o eth0 -j SNAT --to-source 192.168.122.227
+```
