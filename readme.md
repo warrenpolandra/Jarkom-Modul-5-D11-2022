@@ -259,6 +259,12 @@ subnet 192.190.0.16 netmask 255.255.255.248 {
 }
 ```
 
+4. Menjalankan DHCP Server
+
+```
+service isc-dhcp-server start
+```
+
 ### DHCP Relay
 
 Dengan topologi yang ada, **Westalis** dan **Ostania** akan bekerja sebagai DHCP Relay
