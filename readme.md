@@ -313,3 +313,21 @@ OPTIONS=""
 ```
 iptables -t nat -A POSTROUTING -s 192.190.0.0/21 -o eth0 -j SNAT --to-source 192.168.122.227
 ```
+
+### Testing
+
+#### Pada **Strix**
+
+![Ping Google Strix](https://cdn.discordapp.com/attachments/856609726225973278/1049325340335546389/image.png)
+
+#### Pada **Westalis**
+
+![Ping Google Westalis](https://cdn.discordapp.com/attachments/856609726225973278/1049325595240185899/image.png)
+
+#### Pada **WISE**
+
+![Ping Google WISE](https://cdn.discordapp.com/attachments/856609726225973278/1049325941039562752/image.png)
+
+#### Pada **Briar**
+
+![Ping Google Briar](https://cdn.discordapp.com/attachments/856609726225973278/1049326318887649411/image.png)
