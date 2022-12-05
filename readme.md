@@ -14,7 +14,7 @@
 
 ## Topologi
 
-![Topologi](https://cdn.discordapp.com/attachments/856609726225973278/1049221475305009202/Screenshot_2426.png)
+![Topologi](https://cdn.discordapp.com/attachments/856609726225973278/1049247946559987743/Topologi.png)
 
 ## Keterangan Node:
 
