@@ -184,4 +184,11 @@ route add -net 192.190.0.24 netmask 255.255.255.248 gw 192.190.0.6
 route add -net 192.190.2.0 netmask 255.255.254.0 gw 192.190.0.6
 ```
 
-## (D) DHCP pada Forger, Desmond, Blackbell, dan Briar
+## (D) DHCP
+
+Pada Forger, Desmond, Blackbell, dan Briar dilakukan network configuration seperti berikut
+
+```
+auto eth0
+iface eth0 inet dhcp
+```
