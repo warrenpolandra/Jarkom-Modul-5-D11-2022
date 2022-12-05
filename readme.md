@@ -26,3 +26,6 @@
 - Jumlah Host pada Blackbell adalah 255 host
 - Jumlah Host pada Briar adalah 200 host
 
+## Pembagian Subnet - VLSM
+
+![Subnet VLSM](https://cdn.discordapp.com/attachments/856609726225973278/1049249641172062239/Subnet_VLSM.png)
