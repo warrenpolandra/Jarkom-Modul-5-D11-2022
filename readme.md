@@ -375,3 +375,17 @@ iptables -A INPUT -p icmp -m connlimit --connlimit-above 2 --connlimit-mask 0 -j
 
 ## (4) Akses menuju Web Server hanya diperbolehkan disaat jam kerja yaitu Senin sampai Jumat pada pukul 07.00 - 16.00
 
+
+
+## (5) Setiap request dari client yang mengakses Garden dengan port 80 dan 443 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan
+
+
+
+## (6) Logging paket yang di-drop dengan standard syslog level
+
+```
+iptables -N LOGGING
+iptables -A INPUT -j LOGGING
+iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+iptables -A LOGGING -j DROP
+```
