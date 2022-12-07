@@ -384,11 +384,11 @@ iptables -A INPUT -j REJECT
 
 ### Testing
 
-Ping Garden (192.190.0.27) pada jam kerja
+Ping **Garden** (192.190.0.27) pada jam kerja
 
 ![Ping Jam Kerja](https://cdn.discordapp.com/attachments/856609726225973278/1049978185523134525/image.png)
 
-Ping Garden (192.190.0.27) pada hari libur
+Ping **Garden** (192.190.0.27) pada hari libur
 
 ![Ping Hari Libur](https://cdn.discordapp.com/attachments/856609726225973278/1049978394185576488/image.png)
 
