@@ -288,6 +288,35 @@ INTERFACES="eth0 eth1 eth2 eth3"
 OPTIONS=""
 ```
 
+### DNS Forwarder
+
+Pada **Eden** sebagai DNS Server, dilakukan instalasi Bind9
+
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+
+apt-get update
+apt-get install bind9 -y
+
+service bind9 start
+```
+
+Kemudian konfigurasi DNS Forwarder pada file `/etc/bind/named.conf.options`
+
+```
+options {
+        directory \"/var/cache/bind\";
+
+         forwarders {
+                192.168.122.1;
+         };
+
+        allow-query{any;};
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+};
+```
+
 ### Testing
 
 #### Forger
@@ -392,7 +421,7 @@ Ping **Garden** (192.190.0.27) pada hari libur
 
 ![Ping Hari Libur](https://cdn.discordapp.com/attachments/856609726225973278/1049978394185576488/image.png)
 
-## (5) Setiap request dari client yang mengakses Garden dengan port 80 dan 443 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan
+## (5) Setiap request dari client yang mengakses Garden dengan port 80 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan dan request dari client yang mengakses SSS dengan port 443 akan didistribusikan secara bergantian pada Garden dan SSS secara berurutan
 
 
 
