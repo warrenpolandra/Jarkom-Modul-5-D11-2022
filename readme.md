@@ -8,9 +8,9 @@
 
 ## Pembagian Tugas:
 
-- Afira:
-- Beryl: 
-- Warren: 
+- Afira: Topologi, DHCP (33.33%)
+- Beryl: VLSM (33.33%)
+- Warren: Firewall (33.33%)
 
 ## (A) Topologi
 
