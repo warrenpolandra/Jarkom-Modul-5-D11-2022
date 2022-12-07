@@ -425,7 +425,11 @@ Ping **Garden** (192.190.0.27) pada hari libur
 
 ## (5) Setiap request dari client yang mengakses Garden dengan port 80 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan dan request dari client yang mengakses SSS dengan port 443 akan didistribusikan secara bergantian pada Garden dan SSS secara berurutan
 
+Pada **Ostania** dilakukan konfigurasi iptables sebagai berikut
 
+```
+iptables -t nat -A PREROUTING -p tcp -d 192.190.0.27 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.190.0.26:80
+```
 
 ## (6) Logging paket yang di-drop dengan standard syslog level
 
