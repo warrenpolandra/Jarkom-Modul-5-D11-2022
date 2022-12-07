@@ -317,6 +317,8 @@ options {
 };
 ```
 
+Setelah itu restart bind9 dengan `service bind9 restart`
+
 ### Testing
 
 #### Forger
