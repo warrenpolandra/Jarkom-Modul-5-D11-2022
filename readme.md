@@ -375,7 +375,22 @@ iptables -A INPUT -p icmp -m connlimit --connlimit-above 2 --connlimit-mask 0 -j
 
 ## (4) Akses menuju Web Server hanya diperbolehkan disaat jam kerja yaitu Senin sampai Jumat pada pukul 07.00 - 16.00
 
+Pada **Garden** dan **SSS** sebagai Web Server, dibuat firewall sebagai berikut
 
+```
+iptables -A INPUT -m time --timestart 07:00 --timestop 16:00 --weekdays Mon,Tue,Wed,Thu,Fri -j ACCEPT
+iptables -A INPUT -j REJECT
+```
+
+### Testing
+
+Ping Garden (192.190.0.27) pada jam kerja
+
+![Ping Jam Kerja](https://cdn.discordapp.com/attachments/856609726225973278/1049978185523134525/image.png)
+
+Ping Garden (192.190.0.27) pada hari libur
+
+![Ping Hari Libur](https://cdn.discordapp.com/attachments/856609726225973278/1049978394185576488/image.png)
 
 ## (5) Setiap request dari client yang mengakses Garden dengan port 80 dan 443 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan
 
