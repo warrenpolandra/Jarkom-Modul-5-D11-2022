@@ -436,6 +436,6 @@ iptables -t nat -A PREROUTING -p tcp -d 192.190.0.27 --dport 80 -m statistic --m
 ```
 iptables -N LOGGING
 iptables -A INPUT -j LOGGING
-iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+iptables -A LOGGING -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
 iptables -A LOGGING -j DROP
 ```
