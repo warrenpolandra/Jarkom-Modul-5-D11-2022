@@ -429,6 +429,7 @@ Pada **Ostania** dilakukan konfigurasi iptables sebagai berikut
 
 ```
 iptables -t nat -A PREROUTING -p tcp -d 192.190.0.27 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.190.0.26:80
+iptables -t nat -A PREROUTING -p tcp -d 192.190.0.26 --dport 443 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.190.0.27:443
 ```
 
 ## (6) Logging paket yang di-drop dengan standard syslog level
