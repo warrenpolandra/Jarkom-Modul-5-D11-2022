@@ -440,3 +440,8 @@ iptables -A INPUT -j LOGGING
 iptables -A LOGGING -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
 iptables -A LOGGING -j DROP
 ```
+
+## Kendala
+
+- Kesulitan testing menggunakan netcat karena sering timed-out
+- Project GNS3 sulit ditutup, sehingga seringkali ketika testing ulang terdapat error akibat syntax salah yang tidak bisa diperbaiki
